@@ -15,5 +15,6 @@ def add_show(request): #it is a view of form for creating and validating and rea
             fm = StudentRegistration()#it shows form blank after adding data to database.
     else:
         fm = StudentRegistration()
+        stud = User.objects.all()
 
-    return render(request, 'enroll/addandshow.html', {'form':fm})
+    return render(request, 'enroll/addandshow.html', {'form':fm,'stu':stud})
