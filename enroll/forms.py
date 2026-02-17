@@ -9,6 +9,6 @@ class StudentRegistration(forms.ModelForm): #It is a form we create for a user.
         widgets = {
             'name': forms.TextInput(attrs={'class':'form-control'}),#we use form-control to convert normal form into bootstrap form
             'email': forms.EmailInput(attrs={'class':'form-control'}),
-            'password': forms.PasswordInput(attrs={'class':'form-control'})
+            'password': forms.PasswordInput(render_value=True, attrs= {'class':'form-control'})
             ,
         }

@@ -21,6 +21,18 @@ def add_show(request): #it is a view of form for creating and validating and rea
 
     return render(request, 'enroll/addandshow.html', {'form':fm,'stu':stud})
 
+#This function will Update/Edit data.
+def update_data(request, id):
+    if request.method == "POST":
+        pi = User.objects.get(pk=id)
+        fm = StudentRegistration(request.POST, instance=pi)
+        if fm.is_valid():
+            fm.save()
+    else:
+        pi = User.objects.get(pk=id)
+        fm = StudentRegistration(instance=pi) 
+    return render(request, 'enroll/updatestudent.html', {'form':fm})
+
 #This function will delete data.
 def delete_data(request, id):
     if request.method == "POST":
