@@ -11,9 +11,15 @@ def add_show(request): #it is a view of form for creating and validating and rea
     if request.method == "POST":
         fm = StudentRegistration(request.POST)
         if fm.is_valid():
+            rn = fm.cleaned_data['roll_no']
             nm = fm.cleaned_data['name']
             em = fm.cleaned_data['email']
-            reg = Student(name=nm, email=em)
+
+            reg = Student(
+                roll_no=rn,
+                name=nm,
+                email=em
+            )
             reg.save()
             fm = StudentRegistration()#it shows form blank after adding data to database.
     else:
