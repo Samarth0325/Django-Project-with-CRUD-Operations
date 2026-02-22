@@ -1,14 +1,11 @@
-from django.core import validators
 from django import forms
-from .models import User
+from .models import Student
 
-class StudentRegistration(forms.ModelForm): #It is a form we create for a user.
+class StudentRegistration(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ['name','email','password']
+        model = Student
+        fields = ['name', 'email']
         widgets = {
-            'name': forms.TextInput(attrs={'class':'form-control'}),#we use form-control to convert normal form into bootstrap form
+            'name': forms.TextInput(attrs={'class':'form-control'}),
             'email': forms.EmailInput(attrs={'class':'form-control'}),
-            'password': forms.PasswordInput(render_value=True, attrs= {'class':'form-control'})
-            ,
         }

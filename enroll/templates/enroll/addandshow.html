@@ -19,7 +19,6 @@
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Password</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -29,7 +28,6 @@
                     <th scope="row">{{st.id}}</th>
                     <td>{{st.name}}</td>
                     <td>{{st.email}}</td>
-                    <td>{{st.password}}</td>
                     <td>
                         <a href="{% url 'updatedata' st.id %}" class="btn btn-warning btn-sm">Edit</a>
                         <form action="{% url 'deletedata' st.id %}" method="post" class="d-inline">      {% csrf_token %}
